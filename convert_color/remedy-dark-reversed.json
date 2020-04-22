@@ -1,0 +1,21 @@
+{
+    "name": "Remedy-dark-reversed",
+    "black": "#453f3c",
+    "red": "#4242a5",
+    "green": "#40948c",
+    "yellow": "#5f93de",
+    "blue": "#9d815f ",
+    "purple": "#8f6785",
+    "cyan": "#878d5e",
+    "white": "#979089",
+    "brightBlack": "#615953",
+    "brightRed": "#6666cc",
+    "brightGreen": "#68bdb5",
+    "brightYellow": "#74c6f0",
+    "brightBlue": "#bea281",
+    "brightPurple": "#bb94b2",
+    "brightCyan": "#b7be8a",
+    "brightWhite": "#eeefee",
+    "background": "#2a2b2c",
+    "foreground": "#c4e7f9"
+  }

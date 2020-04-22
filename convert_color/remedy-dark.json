@@ -1,0 +1,21 @@
+{
+    "name": "Remedy-dark",
+    "black": "#3c3f45",
+    "red": "#a54242",
+    "green": "#8c9440",
+    "yellow": "#de935f",
+    "blue": "#5f819d ",
+    "purple": "#85678f",
+    "cyan": "#5e8d87",
+    "white": "#899097",
+    "brightBlack": "#535961",
+    "brightRed": "#cc6666",
+    "brightGreen": "#b5bd68",
+    "brightYellow": "#f0c674",
+    "brightBlue": "#81a2be",
+    "brightPurple": "#b294bb",
+    "brightCyan": "#8abeb7",
+    "brightWhite": "#eeefee",
+    "background": "#2c2b2a",
+    "foreground": "#f9e7c4"
+  }
