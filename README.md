@@ -18,9 +18,17 @@ There are also black and white themes which is used when writing for books, ligh
 1. Download [Fira Code Font](https://github.com/tonsky/FiraCode) - note Light [isn't working](https://github.com/tonsky/FiraCode/issues/941) with ligatures
 2. Download latest [Remedy iterm2](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) and place into convert_color folder
 3. Install GO
+sudo apt install golang-go
 
 
 ## Convert file and add theme to profiles.json
 
+https://superuser.com/questions/1455847/how-do-i-get-guid-of-apps-installed-from-microsoft-store
+
+
+### How to get a Windows Store GUID
+https://www.ibm.com/support/knowledgecenter/en/SS8H2S/com.ibm.mc.doc/winphone_enrollment_source/concepts/appid_manual_steps.htm
+
+(Adding Distros after the fact)
 
 
