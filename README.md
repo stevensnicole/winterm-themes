@@ -18,7 +18,12 @@ There are also black and white themes which is used when writing for books, ligh
 1. Download [Fira Code Font](https://github.com/tonsky/FiraCode) - note Light [isn't working](https://github.com/tonsky/FiraCode/issues/941) with ligatures
 2. Download latest [Remedy iterm2](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) and place into convert_color folder
 3. Install GO
+
+``` bash
+sudo apt update
 sudo apt install golang-go
+go version
+```
 
 
 ## Convert file and add theme to profiles.json
