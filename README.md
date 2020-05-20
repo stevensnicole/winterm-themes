@@ -8,7 +8,7 @@
 
 This is [Windows Terminal](https://www.microsoft.com/en-gb/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab) with the awesome [Remedy Theme](https://marketplace.visualstudio.com/items?itemName=robertrossmann.remedy) from VSCode, which isn't readily available for Windows Terminal. The font is [Fira Code](https://github.com/tonsky/FiraCode) which contains [ligature](https://en.wikipedia.org/wiki/Orthographic_ligature) support, converting multi-character representations to [glyphs](https://github.com/tonsky/FiraCode#whats-in-the-box). This is how the prompt displays icons for Git, using [powerline-go](https://github.com/justjanne/powerline-go) setup for bash.
 
-This page is a walk through of how to set this up.
+This page is a walkthrough of how to set this configuration up, port themes from other terminals along with finding standard schemes for download. There's also a brief introduction on Powerline enabled fonts and where to download them.
 
 ## Pre-reqs
 
