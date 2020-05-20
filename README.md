@@ -21,22 +21,22 @@ This page is a walk through of how to set this up.
 
 ## Windows terminal settings and using a readily available scheme from GitHub
 
-![My Windows Terminal Cmd](/images/my-cmd-winterm.png)
+![My Windows Terminal Cmd](https://github.com/stevensnicole/winterm-themes/blob/master/images/my-cmd-winterm.png)
 
 This is a themed command prompt profile, it's a good place to start as it uses a scheme readily available to copy from github called [Firewatch](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/windowsterminal/Firewatch.json). If you click on the down arrow at the top of your windows terminal, your Windows Terminal menu opens. At the bottom of the menu is Settings:
 
-![MWindows Terminal Settings](/images/winterm-settings.png)
+![Windows Terminal Settings](https://github.com/stevensnicole/winterm-themes/blob/master/images/winterm-settings.png)
 
 Choose Settings and the settings.json file will open for editing in VSCode. There are some great [msdocs](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/global-settings) on how to edit you settings. Here you are going start by adding a new scheme.  Schemes are added into the schemes section of the settings.json file, which is near the bottom of the page: 
 
 
-![Windows Terminal Settings](/images/winterm-schemes.png)
+![Windows Terminal Settings](https://github.com/stevensnicole/winterm-themes/blob/master/images/winterm-schemes.png)
 
 
 Copy the [Firewatch](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/windowsterminal/Firewatch.json) scheme, including the curly braces and paste it into the settings.json between the square brackets, it should now look like this:
 
 
-![Windows Terminal Settings with Firewatch](/images/winterm-settings-firewatch.png)
+![Windows Terminal Settings with Firewatch](https://github.com/stevensnicole/winterm-themes/blob/master/images/winterm-settings-firewatch.png)
 
 If you don't like the look of that scheme, go up a level in the GitHub repo, there are hundreds more, with screenshots [here](https://github.com/mbadolato/iTerm2-Color-Schemes)!
 
@@ -44,11 +44,11 @@ The scheme is named "Firewatch", this name is used to reference the scheme. The 
 
 In this example the firewatch scheme is only to be applied to the command prompt. Scroll up in the settings.json file until you see *// Make changes here to the cmd.exe profile.*:
 
-![Windows Terminal Settings Cmd](/images/winterm-settings-cmd.png)
+![Windows Terminal Settings Cmd](https://github.com/stevensnicole/winterm-themes/blob/master/images/winterm-settings-cmd.png)
 
 To reference the firewatch scheme add ``` "colorScheme": "Firewatch" ``` into the cmd.exe profile, make sure you add a comma after ```"hidden": false,```:
 
-![Windows Terminal Settings Cmd](/images/winterm-settings-cmd-firewatch.png)
+![Windows Terminal Settings Cmd](https://github.com/stevensnicole/winterm-themes/blob/master/images/winterm-settings-cmd-firewatch.png)
 
 Save the file, if you have the Command Prompt open in your windows terminal it will change automatically. Note that settings at the profile level override those at the default level.
 
@@ -73,23 +73,23 @@ For powershell, download the [ConvertFrom-ItermColoursToHex.psm1](https://raw.gi
 Import-Module ./ConvertFrom-ItermColoursToHex.psm1
 ```
 
-![Load PowerShell Module](/images/import-powershell-module.png)
+![Load PowerShell Module](https://github.com/stevensnicole/winterm-themes/blob/master/images/import-powershell-module.png)
 
 With the module imported, it can be used to convert a .itermcolors file. You'll need to have an .itemcolors file to convert in the directory you run the following command from. Step 3 in the pre-reqs has the GitHub repo for Remedy Dark, which has been renamed to "remedy-dark.itermcolors"
 
 ```powershell
 [xml](Get-Content ./remedy-dark.itermcolors) | ConvertFrom-ItermColoursToHex
 ```
-![Convert with PowerShell](/images/powershell-convert.png)
+![Convert with PowerShell](https://github.com/stevensnicole/winterm-themes/blob/master/images/powershell-convert.png)
 
 The names listed correspond to the equivalents in the Windows Terminal scheme. Open the settings file within Windows Terminal once more. Copy a scheme within the settings.json file and rename the scheme as "Remedy-dark". Now match up the names and overwrite the hex values as shown, note they are not in the correct order:
 
-![Remedy Dark](/images/remedy-dark-json.png)
+![Remedy Dark](https://github.com/stevensnicole/winterm-themes/blob/master/images/remedy-dark-json.png)
 
 Assign the name reference to a profile, in this case I'd like the scheme to be my default color scheme. Scroll to the top of the page and add ``` "colorScheme": "remedyDark" ``` into the defaults section:
 
 
-![Default Scheme](/images/default-colour-scheme.png)
+![Default Scheme](https://github.com/stevensnicole/winterm-themes/blob/master/images/default-colour-scheme.png)
 
 Save the file, and all of the profiles will have the same theme, unless you have a colour scheme defined at the profile level.
 
@@ -109,16 +109,16 @@ Download the [palette.go](https://gitlab.com/hackebrot/palette/-/raw/master/pale
 go run palette.go -colors remedy-dark.itermcolors
 ```
 
-![Remedy Dark in go](/images/go-convert.png)
+![Remedy Dark in go](https://github.com/stevensnicole/winterm-themes/blob/master/images/go-convert.png)
 
 The output this time is slightly different, the hex values are in the correct order, but the names do not tally. "Ansi 0 Color" is "black", "Ansi 1 Color" is "red" and so on. Copy a scheme within the settings.json file and rename the scheme as "Remedy-dark". Now match up the top 16 rows and overwrite the hex values as shown, then copy "Background Color" into "Background" and "Foreground Color" into Foreground.
 
-![Remedy Dark](/images/remedy-dark-json.png)
+![Remedy Dark](https://github.com/stevensnicole/winterm-themes/blob/master/images/remedy-dark-json.png)
 
 Assign the name reference to a profile, in this case I'd like the scheme to be my default color scheme. Scroll to the top of the page and add ``` "colorScheme": "remedyDark" ``` into the defaults section:
 
 
-![Default Scheme](/images/default-colour-scheme.png)
+![Default Scheme](https://github.com/stevensnicole/winterm-themes/blob/master/images/default-colour-scheme.png)
 
 Save the file, and all of the profiles will have the same theme, unless you have a colour scheme defined at the profile level.
 
@@ -133,7 +133,7 @@ Open your Windows Terminal settings once more and scroll to the defaults section
     "fontSize": 10,
 ```
 
-![Default Scheme](/images/fira-code.png)
+![Default Scheme](https://github.com/stevensnicole/winterm-themes/blob/master/images/fira-code.png)
 
 Save the file and the font settings will be applied.
 
