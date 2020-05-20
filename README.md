@@ -54,18 +54,22 @@ Save the file, if you have the Command Prompt open in your windows terminal it w
 
 ## Setting up your own theme and converting one from iTerm2
 
-The [color schemes](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) section of msdocs gives the format required to create your own scheme. You can paste a second section into the schemes array (the square brackets) and give it a name other than "Firewatch". Add the named reference to another profile using ``` "colorScheme": "newScheme" ```, this uses a scheme named "newScheme". Edit the hex notation for the colours in the scheme and each time the file is saved your change will be automatically shown the colour update in Windows Terminal.
-
-The schemes structure uses the iTerm2 format which can be ported for use by many terminals as listed on the [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) GitHub page. The scheme displayed on the first screenshot in this page is from the [Remedy](https://marketplace.visualstudio.com/items?itemName=robertrossmann.remedy) VSCode theme. The [Remedy GitHub repo](https://github.com/robertrossmann/vscode-remedy) contains the [.itermcolors](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) file which enables the same theme in iTerm2. You can also export iTerm2 colour schemes to .itermcolor files.
+The schemes structure uses a JSON variant of the iTerm2 format which can be ported for use by many terminals as listed on the [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) GitHub page. The scheme displayed on the first screenshot in this page is from the [Remedy](https://marketplace.visualstudio.com/items?itemName=robertrossmann.remedy) VSCode theme. The [Remedy GitHub repo](https://github.com/robertrossmann/vscode-remedy) contains the [.itermcolors](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) file which enables the same theme in iTerm2. You can also export schemes from iTerm2 .itermcolor files.
 
 The .itermcolors file looks complicated, but it can be ported for use in Windows Terminal using an itermcolors to hex convertor. There are many available, 
 
-
+The [color schemes](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) section of msdocs gives the format required to create your own scheme. You can paste a second section into the schemes array (the square brackets) and give it a name other than "Firewatch". For example, this could be "powershellScheme", add the named reference to another profile using ``` "colorScheme": "powershellScheme" ```. As you edit the hex presentation of the colours for powershellScheme.
 
 
 There are also black and white themes which is used when writing for books, light text on dark screenshots doesn't print well.
 
 Settings for Windows Terminal and theme converter from iterm2
+
+``` bash
+sudo apt update
+sudo apt install golang-go
+go version
+```
 
 
 ## Convert file and add theme to profiles.json
