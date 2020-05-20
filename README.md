@@ -2,9 +2,7 @@
 
 ## Introduction
 
-With meetups going virtual all over the world, we've all been given access to sessions which we would not normally be able to attend. During these sessions there have been many questions on how to customise terminals, both prompts and colour schemes. A further spotlight has been placed on this by the release of [Windows Terminal 1.0](https://devblogs.microsoft.com/commandline/windows-terminal-1-0/) at Microsoft Build 2020.
-
-There are [docs](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) on how to customise your theme and [sites](https://terminalsplash.com/) to download them from. But what if you want to use different fonts and a scheme that's not available to just copy?
+[Windows Terminal 1.0](https://devblogs.microsoft.com/commandline/windows-terminal-1-0/) was released at Microsoft Build 2020. There are [docs](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) on how to customise your theme and [sites](https://terminalsplash.com/) to download them from. But what if you want to use different fonts and a scheme that's not available to just copy?
 
 ![My Windows Terminal Ubuntu](https://github.com/stevensnicole/winterm-themes/blob/master/images/my-bash-winterm.png)
 
