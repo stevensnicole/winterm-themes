@@ -149,6 +149,6 @@ There are a few ways to do this, however, msdocs has a good [tutorial](https://d
 
 ## SSH With terminal
 
-Thomas Maurer has a great [tutorial]((https://www.thomasmaurer.ch/2020/05/how-to-ssh-into-an-azure-vm-from-windows-terminal-menu/)) on how to setup profiles to SSH you straight in, it focuses on Azure VM's but the ```commandline``` can be altered to any address.
+Thomas Maurer has a great [tutorial](https://www.thomasmaurer.ch/2020/05/how-to-ssh-into-an-azure-vm-from-windows-terminal-menu/) on how to setup profiles to SSH you straight in, it focuses on Azure VM's but the ```commandline``` can be altered to any address.
 
 
