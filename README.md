@@ -1,8 +1,8 @@
 # Windows Terminal Custom Theme and Prompt
 
+## Introduction
 
-## Intro
-With meetups going virtual all over the world, we've all been given access to sessions which we would not normally be able to attend. During these sessions there have been many questions on how to cusomise terminals, both prompts and colour schemes.
+With meetups going virtual all over the world, we've all been given access to sessions which we would not normally be able to attend. During these sessions there have been many questions on how to customise terminals, both prompts and colour schemes. A further spotlight has been placed on this by the release of [Windows Terminal 1.0](https://devblogs.microsoft.com/commandline/windows-terminal-1-0/) at Microsoft Build 2020.
 
 There are [docs](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) on how to customise your theme and [sites](https://terminalsplash.com/) to download them from. But what if you want to use different fonts and a scheme that's not available to just copy?
 
@@ -15,11 +15,11 @@ This page is a walkthrough of how to set this up.
 ## Pre-reqs
 
 1. Download [Windows Terminal](https://www.microsoft.com/en-gb/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
-2. Download [Fira Code Font](https://github.com/tonsky/FiraCode) - note Light [isn't working](https://github.com/tonsky/FiraCode/issues/941) with ligatures
-3. Download latest [Remedy iterm2](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) and place into convert_color folder
+2. Download [Fira Code Font](https://github.com/tonsky/FiraCode/releases/download/4/Fira_Code_v4.zip) - note Light [isn't working](https://github.com/tonsky/FiraCode/issues/941) with ligatures
+3. Download latest [Remedy iTerm Colors file](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) and place into convert_color folder
 4. Download [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Introduction to settings and using a readily available scheme from GitHub
+## Windows terminal settings and using a readily available scheme from GitHub
 
 ![My Windows Terminal Cmd](/images/my-cmd-winterm.png)
 
@@ -50,20 +50,52 @@ To reference the firewatch scheme add ``` "colorScheme": "Firewatch" ``` into th
 
 ![Windows Terminal Settings Cmd](/images/winterm-settings-cmd-firewatch.png)
 
-Save the file, if you have the Command Prompt open in your windows terminal it will change automatically. Note that settings at the profile level overrride those at the default level.
+Save the file, if you have the Command Prompt open in your windows terminal it will change automatically. Note that settings at the profile level override those at the default level.
 
 ## Setting up your own theme and converting one from iTerm2
 
-The schemes structure uses a JSON variant of the iTerm2 format which can be ported for use by many terminals as listed on the [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) GitHub page. The scheme displayed on the first screenshot in this page is from the [Remedy](https://marketplace.visualstudio.com/items?itemName=robertrossmann.remedy) VSCode theme. The [Remedy GitHub repo](https://github.com/robertrossmann/vscode-remedy) contains the [.itermcolors](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) file which enables the same theme in iTerm2. You can also export schemes from iTerm2 .itermcolor files.
+### Creating your own Scheme
 
-The .itermcolors file looks complicated, but it can be ported for use in Windows Terminal using an itermcolors to hex convertor. There are many available, 
+The [color schemes](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) section of msdocs gives the format required to create your own scheme. You can paste a second section into the schemes array (the square brackets) and give it a name other than one that already exists. For example, this could be "powershellScheme", add the named reference to another profile using ``` "colorScheme": "powershellScheme" ```. Now as you edit the hex representation of the colours for powershellScheme and save the file, the changes will be displayed immediately in Windows Terminal.
 
-The [color schemes](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes) section of msdocs gives the format required to create your own scheme. You can paste a second section into the schemes array (the square brackets) and give it a name other than "Firewatch". For example, this could be "powershellScheme", add the named reference to another profile using ``` "colorScheme": "powershellScheme" ```. As you edit the hex presentation of the colours for powershellScheme.
+### Conversion from iTerm2
+
+Another way is to take a theme from a different terminal. The schemes structure uses a JSON variant of the iTerm2 colour scheme format. This format can be ported for use by many terminals as listed on the [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) GitHub page. The scheme displayed on the first screenshot in this page is from the [Remedy](https://marketplace.visualstudio.com/items?itemName=robertrossmann.remedy) VSCode theme. The [Remedy GitHub repo](https://github.com/robertrossmann/vscode-remedy) contains the [.itermcolors](https://github.com/robertrossmann/vscode-remedy/blob/master/resources/iTerm2/Remedy%20-%20Dark.itermcolors) file which enables the same theme in iTerm2. You can also export schemes directly from iTerm2 to .itermcolor files.
+
+The .itermcolors file looks complicated, but it can be ported for use in Windows Terminal using an itermcolors to hex convertor. There are many scripts available to do this on various sites, for this walkthrough a [PowerShell convertor](https://github.com/charliebillen/ConvertItermColoursToHex) example and a [go convertor](https://gitlab.com/hackebrot/palette) will be shown.
 
 
-There are also black and white themes which is used when writing for books, light text on dark screenshots doesn't print well.
+#### Conversion with PowerShell
 
-Settings for Windows Terminal and theme converter from iterm2
+For powershell, download the [ConvertFrom-ItermColoursToHex.psm1](https://raw.githubusercontent.com/charliebillen/ConvertItermColoursToHex/master/ConvertFrom-ItermColoursToHex.psm1) and save as a file of the same name. To load in the module, open a powershell terminal and from inside the same folder you downloaded the psm1 file:
+
+``` powershell
+Import-Module ./ConvertFrom-ItermColoursToHex.psm1
+```
+
+![Load PowerShell Module](/images/import-powershell-module.png)
+
+With the module imported, it can be used to convert a .itermcolors file. You'll need to have an .itemcolors file to convert in the directory you run the following command from. Step 3 in the pre-reqs has the GitHub repo for Remedy Dark, which has been renamed to "remedy-dark.itermcolors"
+
+```powershell
+[xml](Get-Content ./remedy-dark.itermcolors) | ConvertFrom-ItermColoursToHex
+```
+![Convert with PowerShell](/images/powershell-convert.png)
+
+The names listed correspond to the equivalents in the Windows Terminal scheme. Open the settings file within Windows Terminal once more. Copy a scheme within the settings.json file and rename the scheme as "Remedy-dark". Now match up the names and overwrite the hex values as shown, note they are not in the correct order:
+
+![Remedy Dark](/images/remedy-dark-json.png)
+
+Assign the name reference to a profile, in this case I'd like the scheme to be my default color scheme. Scroll to the top of the page and add ``` "colorScheme": "remedyDark" ``` into the defaults section:
+
+
+![Default Scheme](/images/default-colour-scheme.png)
+
+Save the file, and all of the profiles will have the same theme, unless you have a colour scheme defined at the profile level.
+
+#### Conversion with Go
+
+ To complete the same steps using go on a Ubuntu WSL distro. Install go if you don't already have it:
 
 ``` bash
 sudo apt update
@@ -71,17 +103,52 @@ sudo apt install golang-go
 go version
 ```
 
+Download the [palette.go](https://gitlab.com/hackebrot/palette/-/raw/master/palette.go) file and save as a file of the same name. With go setup you can run the script. Note you'll need to have an .itemcolors file to convert in the directory along with your palette.go script. Step 3 in the pre-reqs has the GitHub repo for Remedy Dark itermcolors file, which has been renamed to "remedy-dark.itermcolors". In the same Ubuntu WSL distro that you installed go on, cd to the directory with your script and color file in and run:
 
-## Convert file and add theme to profiles.json
+``` bash
+go run palette.go -colors remedy-dark.itermcolors
+```
 
-Windows Terminal supports many iTerm2 
+![Remedy Dark in go](/images/go-convert.png)
 
-## Create GUIDS
+The output this time is slightly different, the hex values are in the correct order, but the names do not tally. "Ansi 0 Color" is "black", "Ansi 1 Color" is "red" and so on. Copy a scheme within the settings.json file and rename the scheme as "Remedy-dark". Now match up the top 16 rows and overwrite the hex values as shown, then copy "Background Color" into "Background" and "Foreground Color" into Foreground.
 
-https://www.thomasmaurer.ch/2016/03/create-guid-using-powershell/
+![Remedy Dark](/images/remedy-dark-json.png)
+
+Assign the name reference to a profile, in this case I'd like the scheme to be my default color scheme. Scroll to the top of the page and add ``` "colorScheme": "remedyDark" ``` into the defaults section:
+
+
+![Default Scheme](/images/default-colour-scheme.png)
+
+Save the file, and all of the profiles will have the same theme, unless you have a colour scheme defined at the profile level.
+
+## Changing your font
+
+[Cascadia Code](https://github.com/microsoft/cascadia-code) became the default font for all profiles automatically generated by Windows Terminal in release 0.11. Cascadia Code is an awesome font for developers, but I'm a fan of [Fira Code](https://github.com/tonsky/FiraCode). If you [downloaded](https://github.com/tonsky/FiraCode/releases/download/4/Fira_Code_v4.zip) and installed the fonts from the pre-reqs steps you are ready to go.
+
+Open your Windows Terminal settings once more and scroll to the defults section for profiles, this will set the same font for all of your profiles. Add the following into defaults:
+
+``` json
+    "fontFace": "Fira Code",
+    "fontSize": 10,
+```
+
+![Default Scheme](/images/fira-code.png)
+
+Save the file and the font settings will be applied.
+
+As described in the introduction, Fira Code contains Powerline Glyphs, which means it will automatically show the special characters in my prompt (See the "What about a funky prompt!" section below). If you are sticking with Cascadia Code, you'll need to [download](https://github.com/microsoft/cascadia-code/releases) the Cascadia Code PL fonts which are not shipped with Windows Terminal. The process to install and use the font is the same as above, except the fontFace is ```"fontFace": "Cascadia Code PL"```.
+
+You don't have to stick with Cascadia Code or Fira Code either, the [Powerline Fonts](https://github.com/powerline/fonts) github repo contains many fonts that have been patched for Powerline.
+
+Note - if your fonts don't automatically load after you've shut WIndows Terminal down and re-opened it, I found that installing the Font for all fixed this. I haven't looked into why.
+
+## What about a funky prompt!
+
+There are a few ways to do this, however, msdocs has a good [tutorial](https://docs.microsoft.com/en-us/windows/terminal/tutorials/powerline-setup) which is how the prompt in these screenshots is setup.
 
 ## SSH With terminal
 
-https://www.thomasmaurer.ch/2020/05/how-to-ssh-into-an-azure-vm-from-windows-terminal-menu/
+Thomas Maurer has a great [tutorial]((https://www.thomasmaurer.ch/2020/05/how-to-ssh-into-an-azure-vm-from-windows-terminal-menu/)) on how to setup profiles to SSH you straight in, it focuses on Azure VM's but the ```commandline``` can be altered to any address.
 
 
