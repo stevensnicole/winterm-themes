@@ -293,6 +293,14 @@ You don't have to stick with Cascadia Code or Fira Code either, the [Powerline F
 
 Note - if your fonts don't automatically load after you've shut WIndows Terminal down and re-opened it, I found that installing the Font for all fixed this. I haven't looked into why.
 
+If you are running Windows Terminal 1.1 preview or above and have a font that support it, you can now also specify a weight:
+
+``` json
+    "fontFace": "Fira Code",
+    "fontSize": 10,
+    "fontWeight": "light",
+```
+
 ## What about a funky prompt!
 
 There are a few ways to do this, however, msdocs has a good [tutorial](https://docs.microsoft.com/en-us/windows/terminal/tutorials/powerline-setup) which is how the prompt in these screenshots is setup.
